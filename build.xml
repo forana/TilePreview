@@ -1,0 +1,20 @@
+<project default="jar">
+	<property name="identifier" value="forana.tilepreview.App" />
+	<property name="jarname" value="tilepreview" />
+	<property name="version" value="0.1" />
+	
+	<property name="src" location="src" />
+	<property name="bin" location="bin" />
+	
+	<target name="compile">
+		<javac srcdir="${src}" destdir="${bin}" includeantruntime=""/>
+	</target>
+	
+	<target name="jar" depends="compile">
+		<jar jarfile="dist/${jarname}-${version}.jar" basedir="${bin}">
+			<manifest>
+				<attribute name="Main-Class" value="${identifier}" />
+			</manifest>
+		</jar>
+	</target>
+</project>
